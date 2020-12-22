@@ -1,58 +1,112 @@
 // USER VARIABLES SECTION
 
 $accent: orange // Accent Color
-$fontsize: 16px // Body Font Size
+$fontsize: calc(clamp(20px, (1rem + .6vw), 30px)) // Body Font Size
 $textcolor: #333 // Text Color
 $system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
-$roboto: Roboto, sans-serif // Roboto Font Family
+$comfortaa: 'Comfortaa', cursive // Roboto Font Family
 
-// Bootstrap compatible gutter variable => $gutter
-$grid-gutter-width: 20px
-$gutter: $grid-gutter-width
+html
+	box-sizing: border-box
+	scroll-behavior: smooth
+*, *:after, *:before
+	box-sizing: inherit
 
-// IMPORT SECTION
+.body
+	// Header height + 20px
+	--nav_top-indent: 65px
+	--sidebar-height: 0
 
-@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
-@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
-// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
-// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
-
-// FONTS LOAD SECTION
-
-@mixin font($fname, $fstyle, $fweight, $furl)
-	@font-face
-		font-family: $fname
-		font-style: $fstyle
-		font-weight: $fweight
-		// font-display: swap // Uncomment to initially display system fonts
-		src: local($fname), url($furl) format('woff2')
-
-@include font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2')
-@include font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2')
-@include font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2')
-@include font('Roboto', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
-
-// GENERAL DOCUMENT STYLES
-
-::placeholder
-	color: #666
-
-::selection
-	background-color: $accent
-	color: #fff
-
-input, textarea
-	outline: none
-	&:focus:required:invalid
-		border-color: red
-	&:required:valid
-		border-color: green
-
-body
-	font-family: $roboto
+	margin: 0 auto
+	display: grid
+	grid-template-columns: calc(clamp(200px, 20%, 270px)) auto
+	grid-template-areas: '. header header header header header' 'sidebar content content content content content' 'footer footer footer footer footer footer'
+	grid-column-gap: 30px
+	grid-row-gap: calc(clamp(10px, 1vw + 1vh, 25px))
+	font-family: $comfortaa
 	font-size: $fontsize
-	min-width: 320px
+	min-width: 300px
+	max-width: 85%
 	position: relative
 	line-height: 1.65
 	overflow-x: hidden
 	color: $textcolor
+	// Remove blue background after action
+	-webkit-tap-highlight-color: transparent
+
+
+	&.scroll-lock
+		overflow: hidden
+
+	&.blackout:after
+		content: ''
+		position: fixed
+		top: calc(var(--nav_top-indent) + var(--sidebar-height))
+		margin: 0 auto
+		height: 100vh
+		background-color: rgba(0, 0, 0, .7)
+		width: 95%
+
+
+
+@media (max-width: 768px)
+	.body
+		max-width: 95%
+		grid-template-columns: auto
+		grid-template-areas: 'header' 'content' 'footer'
+		grid-column-gap: 0
+		.sidebar
+			grid-area: auto
+			display: none
+		.header
+			grid-template-areas: 'menu . . logo logo . search . account'
+			.hamburger
+				display: inline-block
+			.logo
+				&__link:hover:after
+					display: none
+		.wrapper-button_go-top
+			display: none
+
+a
+	color: black
+	text-decoration: none
+
+ul, li
+	padding: 0
+	margin: 0
+
+ul
+	list-style-type: none
+
+h1, h2, h3, h4, h5, h6
+	margin: 0
+
+.wrapper-button_go-top
+	position: fixed
+	top: 0
+	bottom: 0
+	right: 0
+	width: 7%
+	transition: transform .5s
+	&:hover
+		cursor: pointer
+		.button_go-top
+			transform: translateX(0) !important
+			background-color: rgba(grey, .1)
+			opacity: .9
+	.button_go-top
+		transform: translateX(100%)
+		cursor: pointer
+		width: 100%
+		height: 100%
+		display: flex
+		justify-content: center
+		align-items: center
+		font-size: .55em
+		opacity: .3
+		transition-property: background-color, opacity, transform
+		transition-duration: .6s
+		.fa-chevron-up
+			font-size: .8em
+			margin-right: 5px

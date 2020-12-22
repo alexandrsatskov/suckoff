@@ -1,4 +1,514 @@
 @import config
 
-// CUSTOM USER STYLES & IMPORTS
+// HEADER
+.header
+  grid-area: header
+  padding-top: calc(clamp(5px, 1.5vw + .7vh, 40px))
 
+  display: grid
+  grid-auto-flow: column
+  justify-items: center
+  align-items: center
+  grid-template-areas: '. . . logo logo . search . account'
+
+
+  // HAMBURGER MENU
+  .hamburger-wrapper
+    grid-area: menu
+    justify-self: start
+    width: 40px
+    height: 100%
+    display: flex
+  .hamburger
+    align-self: center
+    display: none
+
+    width: 25px
+    height: 16px
+    position: relative
+    cursor: pointer
+    &__line
+      position: absolute
+      width: 100%
+      height: 2px
+      border-radius: 5px
+      background-color: black
+
+      transition-property: transform
+      transition-duration: 0.15s
+      transition-timing-function: ease
+
+      &:nth-child(1)
+        top: 0
+        transition: transform .8s, top .5s
+      &:nth-child(2)
+        top: 50%
+        transform: translateY(-50%)
+        transition: opacity .3s, transform .6s
+      &:nth-child(3)
+        bottom: 0
+        transition: transform .8s, bottom .5s
+
+  .animate .hamburger__line
+    &:nth-child(1)
+      top: 50%
+      transform: translateY(-50%) rotate(-45deg)
+    &:nth-child(2)
+      opacity: 0
+      transform: translateX(100%)
+    &:nth-child(3)
+      bottom: 50%
+      transform: translateY(50%) rotate(45deg)
+
+  // SEARCH
+  .search-field
+    grid-area: search
+    width: 100%
+    position: relative
+    .fa-search
+      font-size: calc(clamp(12px, 1vw + 1vh, 16px))
+      transition: color 1s
+    &:hover .fa-search
+      color: darken(red, 5%)
+    &:after
+      content: ''
+      height: 2px
+      width: 100%
+      background-color: black
+      position: absolute
+      bottom: 0
+      left: 0
+
+  // SIGH IN, ACCOUNT
+  .account
+    grid-area: account
+    font-size: .45em
+    font-weight: 600
+    align-self: center
+    justify-self: end
+    &__link
+      padding: 10px 0
+    .fa-user
+      font-size: calc(clamp(12px, 1vw + 1vh, 20px))
+      transition: color 1s
+      // Чуть чуть выровнять icon
+      position: relative
+      bottom: -1px
+    &:hover .fa-user
+      color: darken(red, 5%)
+
+  // SUCKOFF STORE LOGO
+  .logo
+    grid-area: logo
+    // Для получения правильной высоты logo
+    line-height: .65
+    &__link
+      position: relative
+      display: block
+      // Logo underline
+      &:after
+        content: ''
+        height: 2px
+        width: 0
+        background-color: black
+        position: absolute
+        bottom: -20%
+        left: 45%
+        transform: translateX(-50%)
+        transition: width 1s
+      &:hover:after
+        width: 85%
+
+      .logo__svg
+        width: calc(clamp(90px, 10vw + 5vh, 130px))
+        fill: none
+        animation: 2.5s ease-in-out forwards logo-draw
+
+        stroke-width: 3
+        stroke: lightgrey
+
+        // First four letters
+        path:nth-child(-n+4)
+          animation: 1.5s linear forwards 2s letter-fill_black
+        // The rest
+        path:nth-child(n+5)
+          animation: 1.5s linear forwards 2s letter-fill_custom
+        // The rectangular
+        path:nth-child(8)
+          animation: 1s ease forwards 1.5s rect-fill
+
+
+
+// SIDEBAR
+.sidebar
+  --animation-duration: 2s
+  --animation-timing-function: ease
+
+  --border-color: black
+  --border-width: 2px
+  --categories-border: var(--border-width) solid var(--border-color)
+
+  grid-area: sidebar
+  align-self: start
+  position: relative
+
+  .categories
+    padding-top: 10px
+    border: var(--categories-border)
+    border-top: none
+    border-color: transparent
+    transition: border-color .75s linear
+    &:hover
+      border-color: var(--border-color)
+
+    .category-male, .category-female
+      display: none
+    .active
+      display: grid
+      grid-row-gap: 5px
+      position: relative
+    &__item
+      --text-decoration: underline red
+      font-size: .6em
+      padding-left: 8px
+      text-decoration: underline transparent
+      transition: text-decoration .5s linear
+      &:hover
+        text-decoration: var(--text-decoration)
+      &:first-letter
+        text-decoration: var(--text-decoration)
+
+
+  .gender
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    font-size: .65em
+    text-align: center
+    position: relative
+    &__item
+      border: var(--categories-border)
+      border-color: transparent
+      cursor: pointer
+
+    .active
+      --right: 0
+      --left: auto
+      --border-radius: 3px
+
+      border: var(--categories-border)
+      border-bottom: none
+      border-top-left-radius: var(--border-radius)
+      border-top-right-radius: var(--border-radius)
+
+      animation: var(--animation-duration) var(--animation-timing-function) forwards border_smooth-appearance
+
+      &:after
+        pointer-events: none
+        content: ''
+        position: absolute
+        bottom: 0
+        right: var(--right)
+        left: var(--left)
+        width: 50%
+        border-bottom: var(--categories-border)
+        animation: var(--animation-duration) var(--animation-timing-function) forwards border_smooth-appearance
+
+
+  .sidebar-svg
+    position: absolute
+    top: -10px
+    left: -10px
+
+    .sidebar-rect
+      position: absolute
+      top: 0
+      left: 0
+
+      fill: transparent
+      stroke-width: 4
+      stroke: black
+
+      --width: auto
+      --height: auto
+      --perimetr: calc(2 * (var(--width) + var(--height)))
+      --gender: 0
+
+      --length_multiplier: 0.03
+      --dashoffset_indent_multiplier: calc(var(--length_multiplier) / 2)
+      --indent_multiplier: calc((1 - var(--length_multiplier)) / 2 - var(--dashoffset_indent_multiplier))
+
+      --dasharray_length: calc(var(--perimetr) * var(--length_multiplier))
+      --dasharray_indent: calc(var(--perimetr) * var(--indent_multiplier))
+      --dashoffset_indent: calc(var(--perimetr) * var(--dashoffset_indent_multiplier))
+
+      stroke-dasharray: var(--dasharray_length) var(--dasharray_indent)
+      stroke-dashoffset: calc(var(--dashoffset_indent) + var(--gender))
+
+      transition: all ease .85s
+      animation: var(--animation-duration) var(--animation-timing-function) forwards svg_smooth-appearance
+
+  &.is-open
+    z-index: 1
+    display: grid
+    grid-auto-rows: 40px auto
+    position: absolute
+    top: var(--nav_top-indent)
+    left: -1px
+    right: -1px
+    background-color: white
+    font-size: calc(clamp(24px, (1rem + 1.5vw), 26px))
+    height: auto
+
+    .sidebar-svg
+      display: none
+    .gender
+      animation: opacity .5s 150ms forwards
+      opacity: 0
+    .categories
+      overflow: auto
+      border: none
+      animation: opacity .5s 150ms forwards
+      opacity: 0
+      .active
+        padding-bottom: 15px
+        align-content: space-around
+        grid-row-gap: 10px
+
+
+
+// COUNTERS FOR TOTAL AMOUNT OF ITEMS
+.items-total, .items-current
+  font-family: Arial, sans-serif
+  font-weight: 600
+  font-size: 1.2em
+
+// MAIN-CONTENT
+.content
+  grid-area: content
+
+  display: grid
+  grid-row-gap: 20px
+
+  .filter-bar
+    display: grid
+    justify-content: space-between
+    align-items: center
+    grid-auto-flow: column
+
+    .items-amount
+      font-size: .45em
+
+    &__item
+      position: relative
+      width: calc(clamp(150px, 15%, 180px))
+
+      .filter-bar-button
+        display: block
+        font-size: .65em
+        font-weight: 550
+        //&:focus
+        //  &+ .filter-bar-list
+        //    opacity: 1
+        //    pointer-events: all
+        //    transform: translateY(0)
+        //  .arrow
+        //    transform: rotate(45deg)
+        //    border-color: red
+        &:hover .arrow
+          border-color: darken(red, 5%)
+        .arrow
+          --border: 2px solid black
+          border-left: var(--border)
+          border-top: var(--border)
+          display: inline-block
+          padding: 2px
+          margin-left: calc(clamp(5px, 7%, 15px))
+          transform: translateY(-50%) rotate(-135deg)
+          transition: transform .5s, border-color .5s linear
+          &.rotate
+            transform: rotate(45deg)
+            border-color: darken(red, 5%)
+
+      .filter-bar-list
+        width: 100%
+        position: absolute
+        background-color: white
+        z-index: 1
+        pointer-events: none
+        opacity: 0
+        padding-bottom: 8px
+        transform: translateY(-10%)
+        transition: opacity .5s ease, transform .5s ease
+        &.is-open
+          opacity: 1
+          pointer-events: all
+          transform: translateY(0)
+
+        &__item
+          white-space: nowrap
+          padding: 8px 12px
+          font-size: .55em
+          font-weight: 500
+          display: block
+          text-decoration: underline transparent
+          transition: text-decoration .75s ease
+          &:hover
+            text-decoration: underline red
+
+
+
+  .product-list
+    transition: color .6s
+
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(calc(min(30%, 250px)), 1fr))
+    grid-gap: 10px
+    justify-content: center
+    counter-reset: items
+
+    &__item
+      position: relative
+      //@for $i from 1 through 10000
+      //  &:nth-child(#{$i})
+      //    background-color: rgb(random(255), random(255), random(255))
+      .image-wrapper
+        width: 100%
+        img
+          max-width: 100%
+          height: auto
+          object-fit: cover
+
+      .product-desc
+        font-size: .45em
+        &__price
+          font-family: Arial, sans-serif
+          font-weight: 400
+          .monetary-unit
+            font-family: $comfortaa
+            font-weight: 800
+
+      &:before
+        content: counter(items)
+        font-size: $fontsize
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        color: white
+        mix-blend-mode: difference
+        counter-increment: items
+
+
+  .items-progress-bar
+    --items-current: 23
+    --items-total: 240
+
+    position: relative
+    justify-self: center
+    font-size: .55em
+    margin-top: calc(clamp(20px, 3vw + 2vh, 60px))
+    &:after, &:before
+      content: ''
+      height: 3px
+      position: absolute
+      bottom: -10px
+      left: 0
+    &:after
+      background-color: black
+      width: calc(var(--items-current) / var(--items-total) * 100%)
+      transition: width .5s
+    &:before
+      background-color: darken(lightgray, 10%)
+      width: 100%
+
+
+.footer
+  grid-area: footer
+
+  height: calc(clamp(40px, 5vw + 5vh, 200px))
+  color: black
+  font-weight: 700
+  font-size: .5em
+  .credits
+    position: absolute
+    bottom: 0
+    left: 0
+    &:first-letter
+      color: red
+    &__link
+      color: black
+      transition: color 1s ease
+    &__link:hover
+      color: darken(red, 5%)
+
+
+
+
+// MEDIA QUERIES
+@media (max-width: 500px)
+  .content
+    .product-list
+      grid-template-columns: repeat(2, 1fr)
+
+
+
+// KEYFRAMES
+@keyframes border_smooth-appearance
+  0%
+    border-color: transparent
+  100%
+    border-color: var(--border-color)
+
+
+@keyframes svg_smooth-appearance
+  0%
+    stroke: transparent
+  100%
+    stroke: black
+
+
+@keyframes letter-fill_black
+  0%
+    fill: transparent
+  100%
+    fill: black
+
+
+@keyframes letter-fill_custom
+  0%
+    fill: transparent
+  100%
+    fill: orangered
+
+
+@keyframes logo-draw
+  0%
+    stroke-dasharray: 0 200
+  80%
+    stroke-width: 2
+  100%
+    stroke-dasharray: 200 0
+    stroke-width: 0
+
+@keyframes rect-fill
+  100%
+    stroke-width: 2
+    stroke: black
+
+@keyframes sidebar_move-out
+  0%
+    width: 0
+  100%
+    width: 100%
+
+@keyframes blackout_move-out
+  0%
+    width: 0
+  100%
+    width: 95%
+
+@keyframes opacity
+  0%
+    opacity: 0
+  100%
+    opacity: 1

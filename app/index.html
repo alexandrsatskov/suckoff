@@ -4,27 +4,341 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>OptimizedHTML 5</title>
-	<meta name="description" content="Startup HTML template OptimizedHTML 5">
+	<title>SuckOff</title>
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="images/favicon.png">
-	<meta property="og:image" content="images/dest/preview.jpg">
 	<link rel="stylesheet" href="css/app.min.css">
+	<!--Fonts-->
+	<link href="https://fonts.googleapis.com/css2?
+	family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
-<body>
+<body id="js-body" class="body">
+	<header id="js-header" class="header">
+		<div id="js-hamburger-wrapper"  class="hamburger-wrapper">
+			<div id="js-hamburger" class="hamburger">
+			<div class="hamburger__line"></div>
+			<div class="hamburger__line"></div>
+			<div class="hamburger__line"></div>
+		</div>
+		</div>
 
-	<!-- CUSTOM HTML -->
+		<div class="logo">
+			<a href="#!" class="logo__link">
+				<svg class="logo__svg" width="140" height="45"
+					 viewBox="0 0 150 45" xmlns="http://www.w3.org/2000/svg">
+					<path d="M9.51172 24.5918C6.61719 23.7598 4.50781 22.7402 3.18359 21.5332C1.87109 20.3145 1.21484 18.8145 1.21484 17.0332C1.21484 15.0176 2.01758 13.3535 3.62305 12.041C5.24023 10.7168 7.33789 10.0547 9.91602 10.0547C11.6738 10.0547 13.2383 10.3945 14.6094 11.0742C15.9922 11.7539 17.0586 12.6914 17.8086 13.8867C18.5703 15.082 18.9512 16.3887 18.9512 17.8066H15.5586C15.5586 16.2598 15.0664 15.0469 14.082 14.168C13.0977 13.2773 11.709 12.832 9.91602 12.832C8.25195 12.832 6.95117 13.2012 6.01367 13.9395C5.08789 14.666 4.625 15.6797 4.625 16.9805C4.625 18.0234 5.06445 18.9082 5.94336 19.6348C6.83398 20.3496 8.33984 21.0059 10.4609 21.6035C12.5938 22.2012 14.2578 22.8633 15.4531 23.5898C16.6602 24.3047 17.5508 25.1426 18.125 26.1035C18.7109 27.0645 19.0039 28.1953 19.0039 29.4961C19.0039 31.5703 18.1953 33.2344 16.5781 34.4883C14.9609 35.7305 12.7988 36.3516 10.0918 36.3516C8.33398 36.3516 6.69336 36.0176 5.16992 35.3496C3.64648 34.6699 2.46875 33.7441 1.63672 32.5723C0.816406 31.4004 0.40625 30.0703 0.40625 28.582H3.79883C3.79883 30.1289 4.36719 31.3535 5.50391 32.2559C6.65234 33.1465 8.18164 33.5918 10.0918 33.5918C11.873 33.5918 13.2383 33.2285 14.1875 32.502C15.1367 31.7754 15.6113 30.7852 15.6113 29.5312C15.6113 28.2773 15.1719 27.3105 14.293 26.6309C13.4141 25.9395 11.8203 25.2598 9.51172 24.5918Z"/>
+					<path d="M34.5781 34.1191C33.3125 35.6074 31.4551 36.3516 29.0059 36.3516C26.9785 36.3516 25.4316 35.7656 24.3652 34.5938C23.3105 33.4102 22.7773 31.6641 22.7656 29.3555V16.9805H26.0176V29.2676C26.0176 32.1504 27.1895 33.5918 29.5332 33.5918C32.0176 33.5918 33.6699 32.666 34.4902 30.8145V16.9805H37.7422V36H34.6484L34.5781 34.1191Z"/>
+					<path d="M50.3281 33.6973C51.4883 33.6973 52.502 33.3457 53.3691 32.6426C54.2363 31.9395 54.7168 31.0605 54.8105 30.0059H57.8867C57.8281 31.0957 57.4531 32.1328 56.7617 33.1172C56.0703 34.1016 55.1445 34.8867 53.9844 35.4727C52.8359 36.0586 51.6172 36.3516 50.3281 36.3516C47.7383 36.3516 45.6758 35.4902 44.1406 33.7676C42.6172 32.0332 41.8555 29.666 41.8555 26.666V26.1211C41.8555 24.2695 42.1953 22.623 42.875 21.1816C43.5547 19.7402 44.5273 18.6211 45.793 17.8242C47.0703 17.0273 48.5762 16.6289 50.3105 16.6289C52.4434 16.6289 54.2129 17.2676 55.6191 18.5449C57.0371 19.8223 57.793 21.4805 57.8867 23.5195H54.8105C54.7168 22.2891 54.248 21.2812 53.4043 20.4961C52.5723 19.6992 51.541 19.3008 50.3105 19.3008C48.6582 19.3008 47.375 19.8984 46.4609 21.0938C45.5586 22.2773 45.1074 23.9941 45.1074 26.2441V26.8594C45.1074 29.0508 45.5586 30.7383 46.4609 31.9219C47.3633 33.1055 48.6523 33.6973 50.3281 33.6973Z"/>
+					<path d="M66.8516 27.1934L64.8125 29.3203V36H61.5605V9H64.8125V25.3301L66.5527 23.2383L72.4766 16.9805H76.4316L69.0312 24.9258L77.293 36H73.4785L66.8516 27.1934Z"/>
+					<path d="M106.658 24.0293C106.658 26.5371 106.236 28.7285 105.393 30.6035C104.549 32.4668 103.354 33.8906 101.807 34.875C100.26 35.8594 98.4551 36.3516 96.3926 36.3516C94.377 36.3516 92.5898 35.8594 91.0312 34.875C89.4727 33.8789 88.2598 32.4668 87.3926 30.6387C86.5371 28.7988 86.0977 26.6719 86.0742 24.2578V22.4121C86.0742 19.9512 86.502 17.7773 87.3574 15.8906C88.2129 14.0039 89.4199 12.5625 90.9785 11.5664C92.5488 10.5586 94.3418 10.0547 96.3574 10.0547C98.4082 10.0547 100.213 10.5527 101.771 11.5488C103.342 12.5332 104.549 13.9688 105.393 15.8555C106.236 17.7305 106.658 19.916 106.658 22.4121V24.0293ZM103.301 22.377C103.301 19.3418 102.691 17.0156 101.473 15.3984C100.254 13.7695 98.5488 12.9551 96.3574 12.9551C94.2246 12.9551 92.543 13.7695 91.3125 15.3984C90.0938 17.0156 89.4668 19.2656 89.4316 22.1484V24.0293C89.4316 26.9707 90.0469 29.2852 91.2773 30.9727C92.5195 32.6484 94.2246 33.4863 96.3926 33.4863C98.5723 33.4863 100.26 32.6953 101.455 31.1133C102.65 29.5195 103.266 27.2402 103.301 24.2754V22.377Z"/>
+					<path d="M112.811 36V19.4941H109.805V16.9805H112.811V15.0293C112.811 12.9902 113.355 11.4141 114.445 10.3008C115.535 9.1875 117.076 8.63086 119.068 8.63086C119.818 8.63086 120.562 8.73047 121.301 8.92969L121.125 11.5664C120.574 11.4609 119.988 11.4082 119.367 11.4082C118.312 11.4082 117.498 11.7188 116.924 12.3398C116.35 12.9492 116.062 13.8281 116.062 14.9766V16.9805H120.123V19.4941H116.062V36H112.811Z"/>
+					<path d="M125.326 36V19.4941H122.32V16.9805H125.326V15.0293C125.326 12.9902 125.871 11.4141 126.961 10.3008C128.051 9.1875 129.592 8.63086 131.584 8.63086C132.334 8.63086 133.078 8.73047 133.816 8.92969L133.641 11.5664C133.09 11.4609 132.504 11.4082 131.883 11.4082C130.828 11.4082 130.014 11.7188 129.439 12.3398C128.865 12.9492 128.578 13.8281 128.578 14.9766V16.9805H132.639V19.4941H128.578V36H125.326Z"/>
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M135 1H85C82.7909 1 81 2.79086 81 5V40C81 42.2091 82.7909 44 85 44H135C137.209 44 139 42.2091 139 40V5C139 2.79086 137.209 1 135 1ZM85 0C82.2386 0 80 2.23858 80 5V40C80 42.7614 82.2386 45 85 45H135C137.761 45 140 42.7614 140 40V5C140 2.23858 137.761 0 135 0H85Z"/>
+				</svg>
+			</a>
+		</div>
 
-	<div class="container" style="max-width: 700px; margin: auto">
+		<div class="search-field">
+			<i class="fas fa-search"></i>
+		</div>
 
-		<img src="images/dest/preview.jpg" alt="Start HTML5 Template" width="100%"><br><br>
-		<h2>Welcome to startup HTML template OptimizedHTML 5!</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam reprehenderit nulla alias expedita a qui, pariatur doloremque ipsa fugit laboriosam odio iure recusandae laborum delectus praesentium magni reiciendis voluptatem. Sed.</p>
+		<div class="account">
+			<a class="account__link"
+			   href="https://oauth.vk.com/authorize?client_id=2685278&scope=messages,offline&redirect_uri=https://oauth.vk.com/blank.html&display=page&response_type=token&revoke=1">
+				<i class="far fa-user"></i>
+				Sign&nbsp;In
+			</a>
+		</div>
+	</header>
 
+	<nav id="js-sidebar" class="sidebar">
+			<svg id="js-sidebar-svg" class="sidebar-svg">
+				<rect id="js-sidebar-rect" class="sidebar-rect"></rect>
+			</svg>
+
+			<div id="js-gender" class="gender">
+				<h3 id="js-gender-male" class="gender__item active">Мужчины</h3>
+				<h3 id="js-gender-female" class="gender__item">Женщины</h3>
+			</div>
+
+			<div id="js-categories" class="categories">
+				<div id="js-categories-male" class="category-male active">
+					<a href="#!" class="categories__item">Футболки и майки</a>
+					<a href="#!" class="categories__item">Худи и свитшоты</a>
+					<a href="#!" class="categories__item">Кардиганы и джемперы</a>
+					<a href="#!" class="categories__item">Куртки и пальто</a>
+					<a href="#!" class="categories__item">Пиджаки и костюмы</a>
+					<a href="#!" class="categories__item">Рубашки</a>
+					<a href="#!" class="categories__item">Брюки</a>
+					<a href="#!" class="categories__item">Обувь</a>
+				</div>
+				<div id="js-categories-female" class="category-female">
+					<a href="#!" class="categories__item">Платья</a>
+					<a href="#!" class="categories__item">Обувь</a>
+					<a href="#!" class="categories__item">Куртки и пальто</a>
+					<a href="#!" class="categories__item">Трикотаж</a>
+					<a href="#!" class="categories__item">Кардиганы и джемперы</a>
+					<a href="#!" class="categories__item">Свитшоты и Худи</a>
+					<a href="#!" class="categories__item">Рубашки и блузки</a>
+					<a href="#!" class="categories__item">Топы</a>
+					<a href="#!" class="categories__item">Юбки</a>
+				</div>
+			</div>
+		</nav>
+
+	<main class="content">
+		<div class="filter-bar">
+
+			<div class="filter-bar__item">
+				<a href="#!" id="js-filter-bar-button" class="filter-bar-button">
+					сортировка.<i id="js-filter-bar-arrow" class="arrow"></i>
+				</a>
+				<div id="js-filter-bar-list" class="filter-bar-list">
+					<a class="filter-bar-list__item" href="#!">Дешевое</a>
+					<a class="filter-bar-list__item" href="#!">Дорогое</a>
+					<a class="filter-bar-list__item" href="#!">Размер скидки</a>
+				</div>
+			</div>
+
+			<div class="items-amount">
+				<span class="items-total">240&nbsp;</span>
+				товаров
+			</div>
+
+		</div>
+
+		<ul id="js-product-list" class="product-list">
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+			<li class="product-list__item" data-category="hoodie">
+				<div class="image-wrapper">
+					<img src="https://lp2.hm.com/hmgoepprod?set=source[/a1/0c/a10c91df42bbec4fb158883aa43fe2f8e626a358.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[DESCRIPTIVESTILLLIFE],res[w],hmver[1]&call=url[file:/product/main]" alt="Шорты с поясом">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">Шорты с поясом</h3>
+					<strong class="product-desc__price">
+						1&nbsp;599 <span class="monetary-unit">Руб</span>
+					</strong>
+				</div>
+			</li>
+		</ul>
+
+		<div class="items-progress-bar">
+			отображается&nbsp;
+			<span class="items-current">23&nbsp;</span>
+			из&nbsp;
+			<span class="items-total">240&nbsp;</span>
+			товаров
+		</div>
+	</main>
+
+	<footer class="footer">
+		<p class="credits">Creator:
+			<a class="credits__link" target="_blank" href="https://vk.com/apple_juic3">Александр Сацков</a>
+		</p>
+	</footer>
+
+	<div id="js-wrapper-button_go-top" class="wrapper-button_go-top">
+		<div id="js-button_go-top" class="button_go-top">
+			<i class="fas fa-chevron-up"></i>
+			<span class="button-text">Go&nbsp;up</span>
+		</div>
 	</div>
 
+	<script src="font-awesome.js"></script>
 	<script src="js/app.min.js"></script>
 
 </body>
