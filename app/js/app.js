@@ -147,5 +147,5 @@ document.addEventListener("DOMContentLoaded", function() {
             scroll_top.style.transform = 'translateX(100%)';
         }
         previous_scroll = current_scroll;
-    })
+    });
 });
