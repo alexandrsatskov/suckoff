@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+
+	<meta charset="utf-8">
+	<title>SuckOff</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/app.min.css') }}">
+	<!--Fonts-->
+	<link href="https://fonts.googleapis.com/css2?
+	family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div class="logo">
+		<a href="#!">Suck<span class="logo_color">Off</span></a>
+	</div>
+
+	<nav class="categories">
+		{% for category in categories %}
+			<a href="#!" class="categories__item">{{ category }}</a>
+		{% endfor %}
+	</nav>
+
+	<main class="content">
+		<ul class="product-list">
+		{% for i in range(product_count) %}
+			<li class="product-list__item">
+				<div class="image-wrapper">
+					<img src="{{ test_list[i][0] }}" alt="{{ test_list[i][1] }}">
+				</div>
+
+				<div class="product-desc">
+					<h3 class="product-desc__name">{{ test_list[i][1] }}</h3>
+					<strong class="product-desc__price">
+						{{ test_list[i][2] }}
+					</strong>
+				</div>
+			</li>
+		{% endfor %}
+		</ul>
+	</main>
+
+	<script src="{{ url_for('static', filename='js/app.min.js') }}"></script>
+
+</body>
+</html>
